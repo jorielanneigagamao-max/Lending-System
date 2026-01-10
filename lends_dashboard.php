@@ -11,9 +11,9 @@ $totalInterest = 0;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($loanAmount < 500 || $loanAmount > 50000) {
-        $errorMessage = "⚠️ Loan amount must be between ₱500 and ₱50,000.";
+        $errorMessage = " Loan amount must be between ₱500 and ₱50,000.";
     } elseif (!in_array(needle: $loanTerm, haystack: [1,3,6,9,12,24])) {
-        $errorMessage = "⚠️ Please select a valid loan term.";
+        $errorMessage = " Please select a valid loan term.";
     } else {
         if ($monthlyInterestRate > 0) {
             $monthlyPayment = $loanAmount * ($monthlyInterestRate * pow(num: 1 + $monthlyInterestRate, exponent: $loanTerm)) / (pow(num: 1 + $monthlyInterestRate, exponent: $loanTerm) - 1);
